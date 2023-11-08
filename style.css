@@ -1,0 +1,559 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Josefin+Sans:wght@300&display=swap');
+
+:root{
+    font-size: 15px;
+
+    --white: hsl(0, 0%, 100%);
+    --black: hsl(0, 0%, 0%);
+    --dark-gray: hsl(0, 0%, 55%);
+    --very-dark-gray: hsl(0, 0%, 41%);
+
+    --josefin-sans: 'Josefin Sans';
+    --alata: 'Alata';
+
+    --font-size-1: 1rem;
+    --font-size-2: 1.6rem;
+    --font-size-3: 2rem;
+    --font-size-4: 2.75rem;
+    --font-size-5: 3.2rem;
+}
+
+@media (min-width: 35em){
+    :root{
+        --font-size-3: 2.5rem;
+        --font-size-4: 3.5rem;
+    }
+}
+
+
+@media (min-width: 50em){
+    :root{
+        --font-size-3: 3.2rem;
+        --font-size-4: 4.8rem;
+    }
+}
+
+
+/******************** 
+***** CSS Reset *****
+********************/
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure{
+    margin: 0;
+
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+img, picture{
+    display: block;
+    max-width: 100%;
+}
+
+
+.sr-only{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0
+}
+
+
+/*************************** 
+***** Utilitie Classes *****
+***************************/
+
+.grid{
+    display: grid;
+    gap: var(--gap, 1rem);
+}
+
+.flex{
+    display: flex;
+    gap: var(--gap, 1rem);
+}
+
+.container{
+    display: grid;
+    max-width: 80rem;
+    margin-inline: auto;
+
+}
+
+.center{
+    text-align: center;
+}
+
+.underline{
+    text-decoration: underline;
+    text-underline-offset: 1rem;
+    color: white;
+}
+
+.text-white{color: var(--white);}
+.text-black{color: var(--black);}
+
+.font-jos{font-family: var(--josefin-sans);}
+.font-alata{font-family: var(--alata);}
+
+.fw-1{font-weight: 300;}
+.fw-2{font-weight: 400;}
+
+.fs-1{font-size: var(--font-size-1);}
+.fs-2{font-size: var(--font-size-2);}
+.fs-3{font-size: var(--font-size-3);}
+.fs-4{font-size: var(--font-size-4);}
+.fs-5{font-size: var(--font-size-5);}
+
+.upper{text-transform: uppercase;}
+.lower{text-transform: lowercase;}
+
+
+/*************************** 
+****** Hero Section ******
+***************************/
+
+
+.header{
+    display: flex;
+    
+}
+
+.logo{
+    position: absolute;
+    z-index: 1000;
+    max-width: 50%;
+    padding-inline: 1rem;
+}
+
+.primary-nav{
+   list-style: none;
+    gap: 1.5rem;
+}
+
+.primary-nav > li{
+    text-align: start;
+    margin: 0;
+}
+
+.primary-nav a{
+    text-decoration: none;
+    font-family: var(--alata);
+    font-weight: 300;
+    color: var(--white);
+    gap: 1rem;
+}
+
+.primary-nav a:hover{
+    text-decoration: underline 2px solid;
+    text-underline-offset: 1rem;
+    color: white;
+}
+
+.mobile-nav{
+    display: none;
+
+}
+
+@media (max-width: 35em){
+
+   
+    .primary-nav{
+        flex-direction: column;
+        background-color: var(--black);
+        position: fixed;
+        top: 0;
+        z-index: 15;
+        inset: 0;
+        margin: 0;
+        padding-inline: 1rem;
+        align-items: start;
+        justify-content: center;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in-out;
+        font-size: 1.6rem;
+        height: 70vh;
+    }
+
+    .primary-nav a{
+        text-transform: uppercase;
+    }
+    
+    .primary-nav.open{
+        transform: translateX(0);
+    }
+    
+
+    .mobile-nav{
+        display: block;
+        position: absolute;
+        z-index: 20;
+        top: 2rem;
+        right: 2rem;
+        background-image: url(./images/icon-hamburger.svg);
+        aspect-ratio: 1;
+        width: 1.5rem;
+        border: 0;
+        background-color: transparent;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .mobile-nav.open{
+        background-image: url(./images/icon-close.svg);
+    }
+
+   
+}
+
+.hero{
+    padding-block: 2rem;
+    margin-bottom: 4.5rem;
+    background-image: url(./images/mobile/image-hero.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
+}
+
+.banner{
+    position: absolute;
+    top: 25%;
+    border: 1px solid white;
+    padding: 1.5rem;
+    margin-inline: 1.6rem;
+    margin-block: auto;
+}
+
+@media (min-width: 35em){
+    .hero{
+        background-image: url(./images/desktop/image-hero.jpg);
+    }
+
+    .navbar{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-inline: 11rem;
+        
+    }
+
+    .logo{
+        position: relative;
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .banner{
+        margin-left: 11rem;
+    }
+
+    .banner h1{
+        max-width: 12ch;  
+    }
+
+}
+
+
+
+/*************************** 
+****** Article Section *****
+***************************/
+
+
+.article{
+    
+    margin-inline: 1.6rem;
+    text-align: center;
+}
+
+.article > *{
+    margin-top: 2rem;
+}
+
+.article p{
+    opacity: 0.4;
+}
+
+@media (min-width: 35em){
+    .article{
+        display: flex;
+        position: relative;
+        max-width: 75rem;
+        margin-inline: auto;
+        /* outline: 1px solid red; */
+        margin-block: 10rem;
+    }
+
+   
+
+    .article-content{
+        background-color: white;
+        color: black;
+        position: absolute;
+        right: 5%;
+        bottom: 0;
+        /* outline: 1px solid green; */
+        max-width: 45%;
+        padding-inline: 3.5rem;
+        padding-top: 4rem;
+        text-align: left;
+
+    }
+}
+
+
+/*************************** 
+****** Grid Section *****
+***************************/
+
+
+.grid-images h2{
+    margin-block: 4rem;
+    text-align: center;
+}
+
+.box1{background-image: url(./images/mobile/image-deep-earth.jpg);}
+.box2{background-image: url(./images/mobile/image-night-arcade.jpg);}
+.box3{background-image: url(./images/mobile/image-soccer-team.jpg);}
+.box4{background-image: url(./images/mobile/image-grid.jpg);}
+.box5{background-image: url(./images/mobile/image-from-above.jpg);}
+.box6{background-image: url(./images/mobile/image-pocket-borealis.jpg);}
+.box7{background-image: url(./images/mobile/image-curiosity.jpg);}
+.box8{background-image: url(./images/mobile/image-fisheye.jpg);}
+
+
+.img-box {
+    position: relative;
+    z-index: 1000;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 12vh;
+    vertical-align: bottom;
+}
+
+.img-box p{
+    position: absolute;
+    z-index: 2000;
+    bottom: 10%;
+    left: 10%;
+    color: white;
+}
+
+.img-box:hover{
+    background-color: hsl(0, 0%, 100%);
+    opacity: 0.5;
+}
+
+.img-box:hover p{
+    color: black;
+    font-weight: bold;
+
+}
+
+.img-grid{
+    gap: 2rem;
+    margin-inline: 1.6rem;
+    margin-bottom: 4rem;
+}
+
+
+.btn{
+    display: flex;
+    border: 1px solid black;
+    background-color: var(--white);
+    color: var(--black);
+    padding: 0.5rem 2rem;
+    letter-spacing: 5px;
+    font-weight: 400;
+    margin-inline: auto;
+    margin-block: 3rem;
+}
+
+.btn:hover,
+.btn:focus{
+    background-color: black;
+    color: white;
+}
+
+@media (min-width: 45em){
+    .grid-images{
+        display: grid;
+        grid-template-areas: 
+            " heading button "
+            "images images";
+        margin-inline: 11rem;
+
+    }
+
+    .grid-heading{
+        grid-area: heading;
+        margin-left: 1rem;
+    }
+
+    .grid-btn{
+        display: block;
+        grid-area: button;
+        margin-right: 2rem;
+        height: 3rem;
+        align-self: center;
+    }
+
+    .img-grid{
+        grid-area: images;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .grid-images h2{
+        margin-block: 4rem;
+        text-align: left;
+    }
+
+    .img-box{
+        height: 45vh;
+    }
+
+    .img-box p{
+        left: 20%;
+    }
+
+    .box1{background-image: url(./images/desktop/image-deep-earth.jpg);}
+    .box2{background-image: url(./images/desktop/image-night-arcade.jpg);}
+    .box3{background-image: url(./images/desktop/image-soccer-team.jpg);}
+    .box4{background-image: url(./images/desktop/image-grid.jpg);}
+    .box5{background-image: url(./images/desktop/image-from-above.jpg);}
+    .box6{background-image: url(./images/desktop/image-pocket-borealis.jpg);}
+    .box7{background-image: url(./images/desktop/image-curiosity.jpg);}
+    .box8{background-image: url(./images/desktop/image-fisheye.jpg);}
+
+    
+}
+
+
+
+
+/*************************** 
+****** footer Section *****
+***************************/
+
+
+
+.footer{
+    background-color: var(--black);
+    font-family: var(--alata);
+    height: 55vh;
+    padding: 2rem;
+}
+
+.footer-container{
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-logo{
+    max-width: 50%;
+}
+
+
+.footer-nav{
+    display: inline-flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    gap: 2rem;
+}
+
+.social-icons{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1.5rem;
+}
+
+.footer-nav a{
+    text-decoration: none;
+    color: white;
+}
+
+.copyright{
+    color: white;
+    opacity: 0.5;
+}
+
+@media (min-width: 45em){
+    .footer{
+        
+        height: 20vh;
+        
+    }
+
+    .footer-container{
+        display: grid;
+        grid-template-areas: 
+            "logo icons"
+            "footer-nav copyright";
+        gap: 1rem;
+        column-gap: clamp(5rem, 35vw, 50rem);
+        
+    }
+    
+    .footer-logo{
+        grid-area: logo;
+        align-self: flex-end;
+
+    }
+
+    .social-icons{
+        grid-area: icons;
+        align-self: flex-end;
+    }
+
+    .social-icons:hover{
+        text-decoration: underline 2px solid;
+        text-underline-offset: 1rem;
+        color: white;
+    }
+    
+
+    .footer-nav{
+        grid-area: footer-nav;
+        flex-direction: row;
+        align-self: flex-start;
+    }
+
+    .footer-nav a:hover{
+        text-decoration: underline 2px solid;
+        text-underline-offset: 1rem;
+        color: white;
+    }
+
+    .copyright{
+        grid-area: copyright;
+        align-self: flex-start;
+        margin-top: 1rem;
+    }
+
+   
+}
+
